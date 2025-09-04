@@ -12,11 +12,11 @@
   const MIN_TAP_INTERVAL_MS = 30;
 
   // ====== Flappy Config ======
-  const GOAL_PIPES = 10; // pass this many for win
-  const GRAVITY = 0.35;
-  const JUMP = -6.5;
-  const PIPE_GAP = 120;
-  const PIPE_SPACING = 200;
+  const GOAL_PIPES = 5; // pass this many for win
+  const GRAVITY = 0.30;
+  const JUMP = -7.5;
+  const PIPE_GAP = 150;
+  const PIPE_SPACING = 220;
   const PIPE_WIDTH = 52;
   const FLOOR = 490; // canvas height 520
 
