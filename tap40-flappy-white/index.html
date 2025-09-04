@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tap 40 + Flappy — Mini Games</title>
+  <link rel="icon" href="assets/icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="app.js"></script>
+</head>
+<body class="white">
+  <div id="app" class="app">
+    <header class="app__header">
+      <h1 class="title">🎮 Mini Games: Tap 40 → Flappy</h1>
+      <div id="expiryBadge" class="badge"></div>
+      <button id="btnMute" class="btn tiny" type="button" aria-pressed="false">🔊 Musik</button>
+    </header>
+
+    <!-- Screen: Name -->
+    <section id="screenName" class="screen active" aria-label="Masukkan Nama">
+      <div class="card">
+        <h2 class="subtitle">1) Masukkan Nama</h2>
+        <form id="nameForm" novalidate>
+          <label class="label" for="playerName">Nama Pemain</label>
+          <input id="playerName" name="playerName" type="text" maxlength="20" placeholder="Tulis namamu" required>
+          <p id="nameError" class="error"></p>
+          <button type="submit" class="btn primary">Mulai Game 1</button>
+        </form>
+        <p class="hint">Nama disimpan di perangkat ini. Musik latar akan mulai saat kamu memulai.</p>
+      </div>
+    </section>
+
+    <!-- Screen: Tap 40 -->
+    <section id="screenGameTap" class="screen" aria-label="Game Tap 40">
+      <div class="card">
+        <h2 class="subtitle">2) Game 1 — Tap 40</h2>
+        <div class="hud">
+          <span id="hudName" class="chip">Pemain: -</span>
+          <span id="hudCount" class="chip">Sisa: 40</span>
+          <span id="hudTimer" class="chip">0.000 dtk</span>
+        </div>
+        <div id="tapArea" class="tap-area" role="button" aria-label="Area Tap">
+          <div id="tapCircle" class="tap-circle">
+            <span id="tapText" class="tap-text">Sisa: 40</span>
+          </div>
+        </div>
+        <div class="controls">
+          <button id="btnResetGame" class="btn ghost" type="button">Reset</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen: Flappy -->
+    <section id="screenGameFlappy" class="screen" aria-label="Game Flappy">
+      <div class="card">
+        <h2 class="subtitle">3) Game 2 — Flappy Friend</h2>
+        <p class="hint">Sentuh/klik untuk terbang. Hindari pipa. Capai skor <strong id="goal"></strong> untuk menang!</p>
+        <div class="canvas-wrap">
+          <canvas id="flappy" width="360" height="520" aria-label="Flappy canvas"></canvas>
+        </div>
+        <div class="hud">
+          <span id="flScore" class="chip">Skor: 0</span>
+          <span id="flBest" class="chip">Terbaik: 0</span>
+          <button id="btnFlapReset" class="btn ghost" type="button">Ulang</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen: Result -->
+    <section id="screenResult" class="screen" aria-label="Hasil">
+      <div class="card">
+        <h2 class="subtitle">Selesai! 🎉</h2>
+        <p id="finalMsg" class="final-msg">Kamu menyelesaikan kedua game. Keren!</p>
+        <div class="result">
+          <div class="result__row"><span>Nama</span><strong id="resName">-</strong></div>
+          <div class="result__row"><span>Tap 40 — Total</span><strong id="resTotal">-</strong></div>
+          <div class="result__row"><span>Tap 40 — Rata-rata</span><strong id="resAvg">-</strong></div>
+          <div class="result__row"><span>Flappy — Skor</span><strong id="resFlappy">-</strong></div>
+        </div>
+        <div class="buttons">
+          <button id="btnPlayAgain" class="btn primary" type="button">Main Dari Awal</button>
+          <button id="btnShare" class="btn" type="button">Bagikan</button>
+        </div>
+      </div>
+    </section>
+
+    <div id="expiredOverlay" class="expired hidden" role="dialog">
+      <div class="expired__card">
+        <h2>Masa aktif web sudah berakhir</h2>
+        <p>Terima kasih sudah bermain! (Kadaluarsa)</p>
+      </div>
+    </div>
+
+    <footer class="app__footer">
+      <small>© 2025 Tap 40 + Flappy. Untuk seru-seruan bareng teman.</small>
+    </footer>
+  </div>
+
+  <!-- SFX tap (opsional) dan Musik latar (pengguna sediakan sendiri) -->
+  <audio id="tapSound" preload="auto">
+    <source src="assets/click.mp3" type="audio/mpeg">
+  </audio>
+  <!-- IMPORTANT: Letakkan file lagu berjudul 'kita.mp3' (Sheila On 7 - KITA) di folder assets sendiri -->
+  <!-- Kami tidak menyertakan file audio berhak cipta. -->
+  <audio id="bgm" preload="auto" loop>
+    <source src="assets/kita.mp3" type="audio/mpeg">
+  </audio>
+</body>
+</html>
