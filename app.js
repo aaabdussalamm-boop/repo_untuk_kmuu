@@ -254,7 +254,7 @@
       flCtx.fillText("Sentuh/klik untuk mulai & terbang", 12, 46);
     }
     if (crashed){
-      flCtx.fillText("Kena pipa! Klik 'Ulang' untuk coba lagi.", 12, 70);
+      flCtx.fillText("aduh nabrak! Klik 'Ulang', coba lagi sayangg", 12, 70);
     }
   }
   function loseFlappy(){
